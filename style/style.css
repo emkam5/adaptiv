@@ -1,0 +1,50 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#burger, [for=burger] {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    [for=burger]{
+        display: block;
+        position: fixed;
+        width: 30px;
+        right: 20px;
+        top: 10px;
+    }
+
+    [for=burger]::before {
+        content: '≡';
+        font-size: 25px;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        width: 80%;
+        background: rgb(116, 191, 241);
+        display: none;
+    }
+
+    #burger:checked + label +nav {
+        display: block;
+        animation:  show .5s;
+    }
+
+    #burger:checked + [for=burger]::before {
+        content: '⊗';
+    }
+
+    @keyframes show {
+        0%{
+            opacity: 0;
+        }
+
+        100%{
+            opacity: 1;
+        }
+    }
+}
